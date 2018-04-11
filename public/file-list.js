@@ -1,7 +1,7 @@
 const resolveApp = require('../scripts/config/common');
 
 const file_list = {
-    "index": resolveApp("public/src/index.jsx")
+    "top": resolveApp("public/src/webpart/top.jsx")
 };
 
 module.exports = file_list;

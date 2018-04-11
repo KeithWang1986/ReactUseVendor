@@ -14,13 +14,13 @@ var app = express();
 
 app.use('/public', express.static('public'));
 
-app.get('/react', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(resolveApp('pages/index.html'));
 });
 
-app.use('/react/api', indexRouter);
+//app.use('/react/api', indexRouter);
 
-app.use('/', proxy({ target: 'http://localhost:8080', changeOrigin: true }));
+// app.use('/', proxy({ target: 'http://localhost:8080', changeOrigin: true }));
 
 var server = app.listen(81);
 
