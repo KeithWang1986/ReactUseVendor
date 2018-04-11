@@ -12,14 +12,15 @@ var express = require('express');
 var proxy = require('http-proxy-middleware');
 var app = express();
 
-app.use('/data', proxy({ target: 'http://localhost:8080', changeOrigin: true }));
 app.use('/public', express.static('public'));
 
-app.get('/', function (req, res) {
+app.get('/react', function (req, res) {
   res.sendFile(resolveApp('pages/index.html'));
 });
 
-app.use('/api', indexRouter);
+app.use('/react/api', indexRouter);
+
+app.use('/', proxy({ target: 'http://localhost:8080', changeOrigin: true }));
 
 var server = app.listen(81);
 

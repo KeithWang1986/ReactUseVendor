@@ -1,5 +1,6 @@
 const resolveApp = require('./common');
 const file_list = require('../../public/file-list');
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -44,7 +45,10 @@ const config = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        new ExtractTextPlugin("css/[name].css"),        
+        new ExtractTextPlugin("css/[name].css"),
+        new webpack.DllReferencePlugin({
+            manifest: path.join(resolveApp('public/dll'),'vendor-manifest.json') // 指定manifest.json，也就是上面生成的。
+        }),        
         // Minify the code.
         new webpack.optimize.UglifyJsPlugin({
             compress: {

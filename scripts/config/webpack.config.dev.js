@@ -41,7 +41,7 @@ const config = {
     plugins: [
         new ExtractTextPlugin("css/[name].css"),
         new webpack.DllReferencePlugin({
-            manifest: path.join(resolveApp('public/dist'),'vendor-manifest.json') // 指定manifest.json，也就是上面生成的。
+            manifest: path.join(resolveApp('public/dll'),'vendor-manifest.json') // 指定manifest.json，也就是上面生成的。
         })
     ],
     // Some libraries import Node modules but don't use them in the browser.
