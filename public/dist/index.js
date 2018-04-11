@@ -79,7 +79,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-var _jsxFileName = 'D:\\doudou\\public\\src\\index.jsx';
+var _jsxFileName = 'D:\\ReactUseVendor\\public\\src\\index.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -98,10 +98,36 @@ var App = function (_React$Component) {
     function App(props, context) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props, context));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props, context));
+
+        _this.Text = "abc";
+        return _this;
     }
 
     _createClass(App, [{
+        key: 'onClick',
+        value: function onClick() {
+            fetch("/api/test", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    firstParam: 'yourValue',
+                    secondParam: 'secondValue'
+                })
+            }).then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                }
+            }).then(function (json) {
+                alert(JSON.stringify(json));
+            }).catch(function (error) {
+                console.error(error);
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -109,11 +135,16 @@ var App = function (_React$Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 11
+                        lineNumber: 34
                     },
                     __self: this
                 },
-                'wangg'
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', { type: 'button', value: '\u6309\u94AE', onClick: this.onClick.bind(this), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 35
+                    },
+                    __self: this
+                })
             );
         }
     }]);
@@ -124,35 +155,35 @@ var App = function (_React$Component) {
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](App, {
     __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 41
     },
     __self: this
 }), document.getElementById('root'));
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](App, {
     __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 42
     },
     __self: this
 }), document.getElementById('root2'));
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](App, {
     __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 43
     },
     __self: this
 }), document.getElementById('root3'));
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](App, {
     __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 44
     },
     __self: this
 }), document.getElementById('root4'));
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](App, {
     __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 45
     },
     __self: this
 }), document.getElementById('root5'));

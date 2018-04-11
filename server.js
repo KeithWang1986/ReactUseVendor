@@ -3,6 +3,8 @@ let url = require("url");
 let path = require("path");
 let fs = require("fs");
 
+var indexRouter = require('./routes/index');
+
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
@@ -16,6 +18,8 @@ app.use('/public', express.static('public'));
 app.get('/', function (req, res) {
   res.sendFile(resolveApp('pages/index.html'));
 });
+
+app.use('/api', indexRouter);
 
 var server = app.listen(81);
 
