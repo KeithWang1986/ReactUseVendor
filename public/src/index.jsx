@@ -48,37 +48,37 @@ class App extends React.Component {
         // });
     }
 
-    // render() {
-    //     var list = () => {
-    //         var res = [];
-    //         for (var i = 1; i <= 1000; i++) {
-    //             res.push(
-    //                 <div>
-    //                     <input type="button" value={"按钮" + i + "[" + this.state.count + "]"} onClick={this.onClick.bind(this)} />
-    //                 </div>
-    //             );
-    //         }
-    //         return res
-    //     }
-
-    //     return (
-    //         list()
-    //     );
-    // }
-
     render() {
+        var list = () => {
+            var res = [];
+            for (var i = 1; i <= 1000; i++) {
+                res.push(
+                    <div>
+                        <input type="button" value={"按钮" + i + "[" + this.state.count + "]"} onClick={this.onClick.bind(this)} />
+                    </div>
+                );
+            }
+            return res
+        }
+
         return (
-            <div>
-                <input type="button" value={"按钮" + this.props.index + "[" + this.state.count + "]"} onClick={this.onClick.bind(this)} />
-            </div>
+            list()
         );
     }
+
+    // render() {
+    //     return (
+    //         <div>
+    //             <input type="button" value={"按钮" + this.props.index + "[" + this.state.count + "]"} onClick={this.onClick.bind(this)} />
+    //         </div>
+    //     );
+    // }
 }
 
 
 var __array = [];
 
-for (var i = 1; i <= 1000; i++) {
-    ReactDOM.render(<App index={i} />, document.getElementById('root' + i));
-}
-//ReactDOM.render(<App index={1} />, document.getElementById('root1'));
+// for (var i = 1; i <= 1000; i++) {
+//     ReactDOM.render(<App index={i} />, document.getElementById('root' + i));
+// }
+ReactDOM.render(<App index={1} />, document.getElementById('root1'));
