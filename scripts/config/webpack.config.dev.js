@@ -35,6 +35,26 @@ const config = {
                         }
                     ]
                 })
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true //css压缩
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                minimize: true //css压缩
+                            }
+                        }
+                    ]
+                })
             }
         ]
     },
